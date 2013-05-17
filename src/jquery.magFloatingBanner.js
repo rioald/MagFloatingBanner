@@ -56,12 +56,12 @@ var MagFloatingBanner = function(targetContainer, options) {
 					return true;
 				}
 				
-				target.hide();
+				target.css("visibility", "hidden");
 			});
 			
 			$(document.body).not(target).bind("touchend", function(e) {
 				_placing();
-				target.show();
+				target.css("visibility", "yes");
 			});
 		}
 	};
@@ -167,7 +167,7 @@ $.fn.magFloatingBanner = function(options) {
 	this.each(function(i, v) {
 		v.magFloatingBanner = new MagFloatingBanner(v, options);
 
-		maps.push(v.imageMapWeaver);
+		maps.push(v.magFloatingBanner);
 	});
 	
 	return this.magFloatingBanner = maps;
